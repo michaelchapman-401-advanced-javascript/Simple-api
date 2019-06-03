@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "_id": 1,
+      "name": "groceries",
+      "display_name": "groceries",
+      "description": "stuff"
+    },
+    {
+      "_id": 2,
+      "name": "items",
+      "display_name": "items",
+      "description": "stuff"
+    },
+    {
+      "_id": 3,
+      "name": "things",
+      "display_name": "things",
+      "description": "stuff"
+    },
+    {
+      "_id": 4,
+      "name": "misc",
+      "display_name": "misc",
+      "description": "stuff"
+    }
+  ],
+  "products": [
+    {
+      "_id": 1,
+      "name": "apples",
+      "category": "groceries",
+      "display_name": "apples",
+      "description": "red"
+    },
+    {
+      "_id": 2,
+      "name": "shovel",
+      "category": "items",
+      "display_name": "Shovel",
+      "description": "wood"
+    },
+    {
+      "_id": 3,
+      "name": "paper",
+      "category": "things",
+      "display_name": "paper",
+      "description": "white"
+    },
+    {
+      "_id": 4,
+      "name": "stapler",
+      "category": "misc",
+      "display_name": "stapler",
+      "description": "metal"
+    }
+  ]
+}
