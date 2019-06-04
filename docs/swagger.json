@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080/"
+      "url": "http://localhost:3000/"
     }
   ],
   "paths": {
@@ -28,14 +28,197 @@
         }
       },
       "post": {
+        "responses": {
+          "200": {
+            "description": "Adds to the list of categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/add"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/categories/{id}": {
       "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Gets item based on id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of specified categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/getOne"
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Modify item based with specific id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Adds category to list",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/modifyOne"
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Remove category with specific id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of specified categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/delete"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "description": "Get all products",
+        "responses": {
+          "200": {
+            "description": "Returned a list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/getAll"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Adds to the list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/add"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Gets item based on id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of specified products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/getOne"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Modify item based with specific id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Adds product to list",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/modifyOne"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Remove category with specific id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of specified products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/delete"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -44,8 +227,59 @@
       "getAll": {
         "type": "object",
         "example": [
-          "{}",
-          "{}"
+          {
+            "_id": 1,
+            "name": "groceries",
+            "display_name": "groceries",
+            "description": "stuff"
+          },
+          {
+            "_id": 2,
+            "name": "items",
+            "display_name": "items",
+            "description": "stuff"
+          }
+       ]
+      },
+      "add": {
+        "type": "object",
+        "example": {
+          "name": "hello",
+          "display_name": "World",
+          "desc": "greeting"
+        }
+      },
+      "getOne": {
+        "type": "object",
+        "example": [
+          {
+            "_id": 1,
+            "name": "groceries",
+            "display_name": "groceries",
+            "description": "stuff"
+          }
+        ]
+      },
+      "modifyOne": {
+        "type": "object",
+        "example": [
+          {
+            "_id": 1,
+            "name": "groceries",
+            "display_name": "groceries",
+            "description": "stuff"
+          }
+        ]
+      },
+      "delete": {
+        "type": "object",
+        "example": [
+          {
+            "_id": 1,
+            "name": "groceries",
+            "display_name": "groceries",
+            "description": "stuff"
+          }
         ]
       }
     }
