@@ -115,6 +115,111 @@
           }
         }
       }
+    },
+    "/products": {
+      "get": {
+        "description": "Get all products",
+        "responses": {
+          "200": {
+            "description": "Returned a list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/getAll"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Adds to the list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/add"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Gets item based on id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of specified products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/getOne"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Modify item based with specific id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Adds product to list",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/modifyOne"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+            },
+            "description": "Remove category with specific id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of specified products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/delete"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
